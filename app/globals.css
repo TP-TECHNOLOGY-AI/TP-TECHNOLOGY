@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+@media (pointer: fine) {
+  *, *::before, *::after { cursor: none !important; }
+}
+
 :root {
   --background: #000000;
   --foreground: #f0f0f0;

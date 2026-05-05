@@ -87,6 +87,7 @@ export default function Navigation() {
 
         <a
           href="#konfigurieren"
+          data-magnetic
           className="flex-shrink-0 px-5 py-2 rounded-full text-sm font-semibold bg-white text-black hover:bg-[#7eb8d0] hover:text-white transition-all duration-300 hover:shadow-[0_0_20px_rgba(126,184,208,0.4)]"
         >
           Jetzt konfigurieren →

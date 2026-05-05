@@ -172,6 +172,7 @@ export default function Configurator() {
               </p>
               <button
                 onClick={handleOpenForm}
+                data-magnetic
                 className="px-10 py-3.5 bg-white text-black rounded-full text-sm font-semibold hover:bg-[#7eb8d0] hover:text-white transition-all duration-300 hover:shadow-[0_0_30px_rgba(126,184,208,0.3)]"
               >
                 Konfigurator starten →

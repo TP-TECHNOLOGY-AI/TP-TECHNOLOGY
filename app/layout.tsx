@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { GlobalBackground } from "@/components/ui/global-background";
+import { CursorWrapper } from "@/components/ui/cursor-wrapper";
 
 export const metadata: Metadata = {
   title: "TP Technology — KI-Telefonassistent für Arztpraxen",
@@ -22,6 +23,7 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet" />
       </head>
       <body className="bg-black">
+        <CursorWrapper>
         <GlobalBackground />
         <svg className="absolute h-0 w-0 overflow-hidden" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
           <defs>
@@ -56,6 +58,7 @@ export default function RootLayout({
           </defs>
         </svg>
         {children}
+        </CursorWrapper>
       </body>
     </html>
   );
