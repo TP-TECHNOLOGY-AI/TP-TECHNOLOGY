@@ -2,7 +2,8 @@
 
 import React, { useRef, useEffect, FC, ReactNode, useState } from "react";
 import gsap from "gsap";
-import { vec2, Vec2 } from "vecteur";
+import { vec2 } from "vecteur";
+type Vec2 = ReturnType<typeof vec2>;
 
 interface MagneticCursorProps {
   children: ReactNode;
@@ -137,7 +138,7 @@ export const MagneticCursor: FC<MagneticCursorProps> = ({
           borderRadius: window.getComputedStyle(target).borderRadius,
           backgroundColor: color,
           scaleX: 1, scaleY: 1, rotate: 0,
-          duration: 0.3, ease: "power3.out", overwrite: "all",
+          duration: 0.3, ease: "power3.out", overwrite: true,
         });
       };
 
@@ -155,7 +156,7 @@ export const MagneticCursor: FC<MagneticCursorProps> = ({
           width: configRef.current.cursorSize, height: configRef.current.cursorSize,
           borderRadius: br, backgroundColor: cursorColor,
           scaleX: 1, scaleY: 1,
-          duration: detachDuration, ease: "power3.out", overwrite: "all",
+          duration: detachDuration, ease: "power3.out", overwrite: true,
           onComplete: () => { s.isDetaching = false; },
         });
       };
