@@ -217,7 +217,8 @@ export default function LegalModal({ type, children }: LegalModalProps) {
       {open && (
         <div
           onClick={close}
-          className="fixed inset-0 z-[9999] flex items-center justify-center p-6"
+          data-modal-overlay
+          className="fixed inset-0 z-[9999] flex items-center justify-center p-6 modal-cursor-fix"
           style={{ background: "rgba(0,0,0,0.8)", backdropFilter: "blur(12px)", animation: "fadeIn 0.2s ease" }}
         >
           <div

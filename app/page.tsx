@@ -4,7 +4,7 @@ import Problem from "@/components/sections/Problem";
 import Solution from "@/components/sections/Solution";
 import Features from "@/components/sections/Features";
 import HowItWorks from "@/components/sections/HowItWorks";
-import Customization from "@/components/sections/Customization";
+import ModuleSection from "@/components/ModuleSection";
 import Trust from "@/components/sections/Trust";
 import Reviews from "@/components/sections/Reviews";
 import Configurator from "@/components/sections/Configurator";
@@ -21,7 +21,7 @@ export default function Home() {
         <Solution />
         <Features />
         <HowItWorks />
-        <Customization />
+        <ModuleSection />
         <Trust />
         <Reviews />
         <Configurator />

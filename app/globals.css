@@ -2,6 +2,14 @@
 
 @media (pointer: fine) {
   *, *::before, *::after { cursor: none !important; }
+
+  [data-modal-overlay], [data-modal-overlay] * { cursor: default !important; }
+  [data-modal-overlay] button,
+  [data-modal-overlay] a,
+  [data-modal-overlay] input,
+  [data-modal-overlay] select,
+  [data-modal-overlay] textarea,
+  [data-modal-overlay] label { cursor: pointer !important; }
 }
 
 :root {
@@ -186,4 +194,18 @@ select option {
 @keyframes onloadbgb {
   0% { translate: 0 70%; opacity: 0.3; }
   100% { translate: 0 64%; opacity: 0.8; }
+}
+
+/* Cursor Fix — Modal Overlay */
+.modal-cursor-fix,
+.modal-cursor-fix * {
+  cursor: default !important;
+}
+.modal-cursor-fix button,
+.modal-cursor-fix a,
+.modal-cursor-fix input,
+.modal-cursor-fix select,
+.modal-cursor-fix textarea,
+.modal-cursor-fix label {
+  cursor: pointer !important;
 }
