@@ -417,45 +417,42 @@ export function Configurator({ initialModule = null }: { initialModule?: string 
 
   const handleSubmit = async () => {
     setLoading(true);
-    const body = `
-Neue Konfigurationsanfrage — TP Technology
-
-PRAXIS
-Name: ${form.praxisname}
-Fachrichtung: ${form.fachrichtung}
-PLZ: ${form.plz}
-Anrufvolumen: ${form.anrufvolumen}
-
-KALENDER
-${form.kalender}
-
-MODULE
-Buchungs-Modul: ${form.modBuchung ? "Ja" : "Nein"}
-Komfort-Modul: ${form.modKomfort ? "Ja" : "Nein"}
-Premium - Bestandspatienten-Abgleich: ${form.premBestandspatient ? "Ja" : "Nein"}
-Premium - Akutsprechstunde: ${form.premAkutsprechstunde ? "Ja" : "Nein"}
-Premium - Mehrere Behandler: ${form.premMehrereBehandler ? "Ja" : "Nein"}
-Premium - Failover: ${form.premFailover ? "Ja" : "Nein"}
-Premium - SMS: ${form.premSms ? "Ja" : "Nein"}
-
-STIMME
-Geschlecht: ${form.geschlecht}
-Tonalität: ${form.tonalitaet}
-Name des Assistenten: ${form.assistentname || "—"}
-
-KONTAKT
-Name: ${form.name}
-E-Mail: ${form.email}
-Telefon: ${form.telefon || "—"}
-Anmerkungen: ${form.anmerkungen || "—"}
-    `.trim();
-
-    window.location.href = `mailto:tptechnologyai@gmail.com?subject=Konfigurationsanfrage: ${encodeURIComponent(form.praxisname)}&body=${encodeURIComponent(body)}`;
-
-    setTimeout(() => {
+    try {
+      const response = await fetch("https://formspree.io/f/xgodzall", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          praxisname: form.praxisname,
+          fachrichtung: form.fachrichtung,
+          plz: form.plz,
+          anrufvolumen: form.anrufvolumen,
+          kalender: form.kalender,
+          module_buchung: form.modBuchung ? "Ja" : "Nein",
+          module_komfort: form.modKomfort ? "Ja" : "Nein",
+          premium_bestandspatient: form.premBestandspatient ? "Ja" : "Nein",
+          premium_akutsprechstunde: form.premAkutsprechstunde ? "Ja" : "Nein",
+          premium_mehrere_behandler: form.premMehrereBehandler ? "Ja" : "Nein",
+          premium_failover: form.premFailover ? "Ja" : "Nein",
+          premium_sms: form.premSms ? "Ja" : "Nein",
+          stimme_geschlecht: form.geschlecht,
+          stimme_tonalitaet: form.tonalitaet,
+          assistent_name: form.assistentname || "—",
+          kontakt_name: form.name,
+          kontakt_email: form.email,
+          kontakt_telefon: form.telefon || "—",
+          anmerkungen: form.anmerkungen || "—",
+        }),
+      });
+      if (response.ok) {
+        setSubmitted(true);
+      } else {
+        alert("Es gab einen Fehler. Bitte versuchen Sie es erneut.");
+      }
+    } catch (err) {
+      alert("Es gab einen Fehler. Bitte versuchen Sie es erneut.");
+    } finally {
       setLoading(false);
-      setSubmitted(true);
-    }, 800);
+    }
   };
 
   if (submitted) {

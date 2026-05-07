@@ -55,7 +55,7 @@ export default function HowItWorks() {
             <br />
             <span className="text-[#7eb8d0]">In drei Schritten.</span>
           </h2>
-          <p className="mt-5 text-white/25 text-sm font-light">
+          <p className="mt-5 text-white/75 text-sm font-light">
             Klicken Sie auf einen Schritt für Details.
           </p>
         </div>

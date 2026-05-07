@@ -8,12 +8,12 @@ const CONFIG = {
   strasse: "[STRASSE HAUSNUMMER]",
   plz: "[PLZ]",
   ort: "[ORT]",
-  email: "tptechnologyai@gmail.com",
+  email: "info@tptechnology.net",
   website: "www.tptechnology.de",
   handelsregister: "[HANDELSREGISTERNUMMER]",
   registergericht: "[REGISTERGERICHT]",
   ustId: "[UST-ID]",
-  datenschutzEmail: "tptechnologyai@gmail.com",
+  datenschutzEmail: "info@tptechnology.net",
   gruendungsjahr: "2025",
 };
 

@@ -16,19 +16,19 @@ export default function Footer() {
                 style={{ mixBlendMode: "lighten" }}
               />
             </div>
-            <p className="text-white/30 text-sm leading-relaxed mb-5 font-light">
+            <p className="text-white/75 text-sm leading-relaxed mb-5 font-light">
               KI-Telefonassistenten für Arztpraxen
             </p>
             <a
-              href="mailto:tptechnologyai@gmail.com"
+              href="mailto:info@tptechnology.net"
               className="text-[#7eb8d0]/70 text-sm hover:text-[#7eb8d0] transition-colors duration-200"
             >
-              tptechnologyai@gmail.com
+              info@tptechnology.net
             </a>
           </div>
 
           <div>
-            <h4 className="text-[10px] uppercase tracking-[4px] text-white/20 mb-5 font-medium">
+            <h4 className="text-[10px] uppercase tracking-[4px] text-white/70 mb-5 font-medium">
               Navigation
             </h4>
             <ul className="space-y-3">
@@ -42,7 +42,7 @@ export default function Footer() {
                 <li key={l.label}>
                   <a
                     href={l.href}
-                    className="text-white/30 text-sm hover:text-white transition-colors duration-200 font-light"
+                    className="text-white/75 text-sm hover:text-white transition-colors duration-200 font-light"
                   >
                     {l.label}
                   </a>
@@ -52,7 +52,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="text-[10px] uppercase tracking-[4px] text-white/20 mb-5 font-medium">
+            <h4 className="text-[10px] uppercase tracking-[4px] text-white/70 mb-5 font-medium">
               Rechtliches
             </h4>
             <ul className="space-y-3 mb-8">
@@ -62,15 +62,15 @@ export default function Footer() {
             </ul>
 
             <div className="p-4 bg-white/[0.03] rounded-xl border border-white/[0.06]">
-              <p className="text-white/40 text-xs mb-2 font-medium">Direkt schreiben?</p>
-              <p className="text-white/20 text-xs mb-3 font-light">
+              <p className="text-white/80 text-xs mb-2 font-medium">Direkt schreiben?</p>
+              <p className="text-white/70 text-xs mb-3 font-light">
                 Wir antworten in der Regel innerhalb von 24 Stunden.
               </p>
               <a
-                href="mailto:tptechnologyai@gmail.com"
+                href="mailto:info@tptechnology.net"
                 className="text-[#7eb8d0]/70 text-sm font-medium hover:text-[#7eb8d0] transition-colors duration-200"
               >
-                tptechnologyai@gmail.com
+                info@tptechnology.net
               </a>
             </div>
           </div>

@@ -23,8 +23,8 @@ export default function Home() {
         <HowItWorks />
         <ModuleSection />
         <Trust />
-        <Reviews />
         <Configurator />
+        <Reviews />
         <FAQ />
       </main>
       <Footer />

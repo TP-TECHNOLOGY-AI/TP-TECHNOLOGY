@@ -45,7 +45,7 @@ export default function Solution() {
                     <span className="text-2xl mt-0.5 opacity-70 group-hover:opacity-100 transition-opacity">{f.icon}</span>
                     <div>
                       <h3 className="text-white font-semibold text-base mb-1">{f.title}</h3>
-                      <p className="text-white/35 text-sm leading-relaxed font-light">{f.desc}</p>
+                      <p className="text-white/80 text-sm leading-relaxed font-light">{f.desc}</p>
                     </div>
                   </div>
                 ))}

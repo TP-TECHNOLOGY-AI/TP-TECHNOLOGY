@@ -58,7 +58,7 @@ export default function Features() {
             <h2 className="text-4xl md:text-6xl font-bold text-white leading-tight tracking-tight">
               Alles, was Ihr Empfang kann.
               <br />
-              <span className="text-white/25">Und einiges mehr.</span>
+              <span className="glow-subheading">Und einiges mehr.</span>
             </h2>
           </div>
         }
@@ -91,7 +91,7 @@ export default function Features() {
                 </h3>
                 <ul className="space-y-2">
                   {group.items.map((item) => (
-                    <li key={item} className="flex items-start gap-2 text-white/50 text-[12px] font-light">
+                    <li key={item} className="flex items-start gap-2 text-white/75 text-[12px] font-light">
                       <span className="mt-0.5 text-[10px]" style={{ color: group.color }}>▸</span>
                       {item}
                     </li>

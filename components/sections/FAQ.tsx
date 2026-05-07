@@ -71,7 +71,7 @@ export default function FAQ() {
               {openIndex === i && (
                 <div className="px-6 pb-5 bg-white/[0.02]">
                   <div className="w-full h-[1px] bg-white/[0.06] mb-4" />
-                  <p className="text-white/40 text-sm leading-relaxed font-light">{faq.a}</p>
+                  <p className="text-white/80 text-sm leading-relaxed font-light">{faq.a}</p>
                 </div>
               )}
             </div>

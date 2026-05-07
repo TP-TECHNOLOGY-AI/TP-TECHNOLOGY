@@ -14,8 +14,10 @@ export default function Hero() {
   return (
     <section className="relative h-screen bg-black flex items-center justify-center overflow-hidden">
 
-      {/* Ambient glow blob */}
-      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] rounded-full bg-[#7eb8d0]/[0.05] blur-[120px] pointer-events-none" />
+      {/* Three coloured ambient blobs */}
+      <div className="absolute top-1/3 left-[18%] -translate-y-1/2 w-[480px] h-[300px] rounded-full blur-[130px] pointer-events-none" style={{ background: "rgba(74,222,128,0.055)" }} />
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[320px] rounded-full blur-[120px] pointer-events-none" style={{ background: "rgba(96,165,250,0.06)" }} />
+      <div className="absolute top-1/3 right-[18%] -translate-y-1/2 w-[480px] h-[300px] rounded-full blur-[130px] pointer-events-none" style={{ background: "rgba(167,139,250,0.05)" }} />
 
       {/* Phase 1: TP Technology logo */}
       <AnimatePresence>
@@ -90,7 +92,7 @@ export default function Hero() {
               </h1>
 
               <motion.p
-                className="text-lg md:text-xl text-white/40 max-w-2xl mx-auto mb-14 leading-relaxed font-light"
+                className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto mb-14 leading-relaxed font-light"
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.65, duration: 0.7, ease: "easeOut" }}
@@ -107,26 +109,36 @@ export default function Hero() {
               >
                 <a
                   href="#konfigurieren"
-                  className="px-8 py-3.5 bg-white text-black rounded-full text-sm font-semibold hover:bg-[#7eb8d0] hover:text-white transition-all duration-300 hover:shadow-[0_0_30px_rgba(126,184,208,0.35)]"
+                  className="px-8 py-3.5 bg-white text-black rounded-full text-sm font-semibold hover:bg-[#60a5fa] hover:text-white transition-all duration-300 hover:shadow-[0_0_30px_rgba(96,165,250,0.35)]"
                 >
                   Jetzt konfigurieren →
                 </a>
                 <a
                   href="#problem"
-                  className="px-8 py-3.5 border border-white/[0.15] text-white/60 rounded-full text-sm font-medium hover:border-white/30 hover:text-white transition-all duration-300"
+                  className="px-8 py-3.5 border border-white/[0.15] text-white/80 rounded-full text-sm font-medium hover:border-white/30 hover:text-white transition-all duration-300"
                 >
                   Mehr erfahren ↓
                 </a>
               </motion.div>
 
-              <motion.p
-                className="mt-14 text-xs text-white/20 tracking-widest uppercase"
+              {/* Three coloured pills */}
+              <motion.div
+                className="mt-14 flex flex-wrap justify-center gap-x-6 gap-y-2"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 1.0, duration: 0.7 }}
               >
-                Individuell konfigurierbar &nbsp;·&nbsp; Datenschutzkonform &nbsp;·&nbsp; Einsatzbereit in bis zu 3 Wochen
-              </motion.p>
+                {[
+                  { label: "Individuell konfigurierbar", color: "#4ade80" },
+                  { label: "Datenschutzkonform", color: "#60a5fa" },
+                  { label: "Einsatzbereit in bis zu 3 Wochen", color: "#a78bfa" },
+                ].map(({ label, color }) => (
+                  <span key={label} className="flex items-center gap-1.5 text-xs text-white/75 tracking-widest uppercase">
+                    <span className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: color, boxShadow: `0 0 6px ${color}` }} />
+                    {label}
+                  </span>
+                ))}
+              </motion.div>
             </div>
           </motion.div>
         )}

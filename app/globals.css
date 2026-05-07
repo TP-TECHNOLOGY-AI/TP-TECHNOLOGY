@@ -196,6 +196,15 @@ select option {
   100% { translate: 0 64%; opacity: 0.8; }
 }
 
+/* Glow subheading — for secondary lines within big h2 headlines */
+.glow-subheading {
+  color: rgba(126, 184, 208, 0.80);
+  text-shadow:
+    0 0 25px rgba(96, 165, 250, 0.50),
+    0 0 60px rgba(96, 165, 250, 0.22),
+    0 0 100px rgba(126, 184, 208, 0.10);
+}
+
 /* Cursor Fix — Modal Overlay */
 .modal-cursor-fix,
 .modal-cursor-fix * {

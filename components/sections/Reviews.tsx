@@ -1,3 +1,5 @@
+"use client";
+
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 type Testimonial = {
@@ -84,15 +86,20 @@ const chunkArray = (array: Testimonial[], chunkSize: number): Testimonial[][] =>
 const testimonialChunks = chunkArray(testimonials, Math.ceil(testimonials.length / 3));
 
 const StarIcon = () => (
-  <svg width="12" height="12" viewBox="0 0 24 24" fill="#7eb8d0" xmlns="http://www.w3.org/2000/svg">
+  <svg width="12" height="12" viewBox="0 0 24 24" fill="#f59e0b" xmlns="http://www.w3.org/2000/svg">
     <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
   </svg>
 );
 
+const columnAccents = ["#4ade80", "#60a5fa", "#a78bfa"];
+
 export default function Reviews() {
   return (
     <section className="relative bg-black py-32 overflow-hidden section-glow">
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[250px] bg-[#7eb8d0]/[0.04] blur-[120px] pointer-events-none" />
+      {/* Three coloured ambient blobs per column */}
+      <div className="absolute top-0 left-[15%] w-[300px] h-[200px] rounded-full blur-[120px] pointer-events-none" style={{ background: "rgba(74,222,128,0.04)" }} />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[400px] h-[200px] rounded-full blur-[120px] pointer-events-none" style={{ background: "rgba(96,165,250,0.045)" }} />
+      <div className="absolute top-0 right-[15%] w-[300px] h-[200px] rounded-full blur-[120px] pointer-events-none" style={{ background: "rgba(167,139,250,0.04)" }} />
 
       <div className="max-w-6xl mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
@@ -102,19 +109,40 @@ export default function Reviews() {
           <h2 className="text-4xl md:text-5xl font-bold text-white tracking-tight">
             Das sagen unsere Praxen
           </h2>
-          <p className="mt-4 text-base text-white/35 max-w-xl mx-auto font-light leading-relaxed">
+          <p className="mt-4 text-base text-white/80 max-w-xl mx-auto font-light leading-relaxed">
             Praxisinhaber und -teams berichten über ihre Erfahrungen mit dem KI-Assistenten.
           </p>
         </div>
 
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-          {testimonialChunks.map((chunk, chunkIndex) => (
+          {testimonialChunks.map((chunk, chunkIndex) => {
+            const accent = columnAccents[chunkIndex] ?? "#60a5fa";
+            return (
             <div key={chunkIndex} className="space-y-3">
               {chunk.map(({ name, role, quote, image }, index) => (
                 <div
                   key={index}
-                  className="group p-5 rounded-2xl border border-white/[0.07] bg-white/[0.02] hover:border-[#7eb8d0]/20 hover:bg-white/[0.04] transition-all duration-300"
+                  className="group relative p-5 rounded-2xl border border-white/[0.07] bg-white/[0.02] overflow-hidden transition-all duration-300"
+                  style={{ borderTopColor: `${accent}30` }}
+                  onMouseEnter={(e) => {
+                    (e.currentTarget as HTMLDivElement).style.borderColor = `${accent}30`;
+                    (e.currentTarget as HTMLDivElement).style.background = "rgba(255,255,255,0.035)";
+                  }}
+                  onMouseLeave={(e) => {
+                    (e.currentTarget as HTMLDivElement).style.borderColor = "";
+                    (e.currentTarget as HTMLDivElement).style.background = "";
+                  }}
                 >
+                  {/* Coloured top line */}
+                  <div
+                    className="absolute top-0 left-0 right-0 h-[1px]"
+                    style={{ background: `linear-gradient(90deg, transparent, ${accent}60, transparent)` }}
+                  />
+                  {/* Inner glow on hover */}
+                  <div
+                    className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                    style={{ background: `radial-gradient(ellipse at top, ${accent}06, transparent 65%)` }}
+                  />
                   <div className="flex gap-0.5 mb-3">
                     {Array.from({ length: 5 }).map((_, i) => (
                       <StarIcon key={i} />
@@ -122,7 +150,7 @@ export default function Reviews() {
                   </div>
 
                   <blockquote className="mb-4">
-                    <p className="text-white/50 text-sm leading-relaxed font-light">
+                    <p className="text-white/75 text-sm leading-relaxed font-light">
                       &ldquo;{quote}&rdquo;
                     </p>
                   </blockquote>
@@ -142,13 +170,14 @@ export default function Reviews() {
                     </Avatar>
                     <div>
                       <p className="text-white/70 text-sm font-medium">{name}</p>
-                      <span className="text-white/25 text-xs font-light">{role}</span>
+                      <span className="text-white/70 text-xs font-light">{role}</span>
                     </div>
                   </div>
                 </div>
               ))}
             </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>
